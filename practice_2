@@ -19,14 +19,12 @@ abstract class Vehicle {
 	public abstract void speedUp();
 }
 
-class Car implements BeaMin
+class Car 
 {
 	protected int velocity;
 	protected int wheelNum;
 	protected String carName;
-	public void deliver() {
-		System.out.println("자동차로 배달합니다.");
-	}
+	
 	public Car()
 	{
 		wheelNum = 4;
@@ -77,8 +75,7 @@ public class Truck extends Car implements BeaMin {
 		myCar.speedUp();
 		System.out.println("트럭의 속도 " + myCar.velocity);
 		
-		BeaMin myBeaMin = new Car();
-		myBeaMin.warn();
+		
 		
 		BeaMin myBeaMin = new Cycle();
 		myBeaMin.deliver();
