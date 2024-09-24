@@ -1,0 +1,48 @@
+# ArrayList, HashMap 구조와 Iterator 반복자 사용
+
+import java.util.*;
+
+public class DataStruct {
+    public static void main(String[] args) {
+        ArrayList<Integer> v = new ArrayList<Integer>();
+        v.add(5);
+        v.add(4);
+        v.add(-1);
+
+        Iterator<Integer> it = v.iterator();  // Iterator - 선언한 arraylist의 요소들을 순서대로 꺼내올 때 사용
+        while (it.hasNext()) {                // it.hasNext() 꺼내올 값이 있는지 확인, 실제 값을 꺼내오는 역할
+            int n = it.next();
+            System.out.println(n);
+        }
+
+        System.out.println("==============================");
+
+        for (Integer i : v) {
+            System.out.println(i);
+        }
+
+        HashMap<String, Integer> scoreMap = new HashMap<String, Integer>();  //HashMap - 키(이름)와 값(점수)을 저장
+
+        scoreMap.put("김성동", 97);
+        scoreMap.put("황기태", 88);
+        scoreMap.put("김남윤", 98);
+        scoreMap.put("이재문", 70);
+        scoreMap.put("한원선", 99);
+
+        System.out.println("==============================");
+        System.out.println("HashMap의 요소 개수 :" + scoreMap.size());
+
+        Set<String> keys = scoreMap.keySet();
+        Iterator<String> it2 = keys.iterator();
+        while (it2.hasNext()) {
+            String name = it2.next();
+            int score = scoreMap.get(name);
+            System.out.println(name + " : " + score);
+        }
+
+        System.out.println("==============================");
+        for (String key : keys) {
+            System.out.println(key + " : " + scoreMap.get(key));
+        }
+    }
+}
