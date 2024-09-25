@@ -1,0 +1,59 @@
+# 학생들의 성적을 입력받아 평균을 구하기 (ArrayList와 HashMap 활용하기)
+  
+import java.util.*;
+
+
+public class Main {
+            public static void main(String[] args) {
+                Scanner sc = new Scanner(System.in);
+
+                ArrayList<HashMap<String,Object>> students = new ArrayList<>();
+                System.out.print("학생의 수 입력하기: ");
+                int studentNum = sc.nextInt();
+                sc.nextLine();
+
+                for (int i = 0; i < studentNum; i++) {
+                    HashMap<String, Object> map = new HashMap<>();
+
+                    System.out.print("학생의 이름은: ");
+                    String name = sc.nextLine();
+                    map.put("name", name);
+
+
+                    System.out.print("학생의 국어 점수는 :");
+                    int korean_score = sc.nextInt();
+
+
+                    System.out.print("학생의 수학 점수는: ");
+                    int math_score = sc.nextInt();
+
+
+                    System.out.print("학생의 영어 점수는: ");
+                    int english_score = sc.nextInt();
+                    sc.nextLine();
+
+
+                    int total = korean_score + math_score + english_score;
+                    map.put("total", total);
+
+                    double avg = total / 3.0;
+                    map.put("avg", avg);
+
+                    students.add(map);
+                }
+
+                System.out.println("\n학생들의 총점과 평균: ");
+                for (HashMap<String,Object> student : students) {
+
+                    String name = (String) student.get("name");
+                    int score = (int) student.get("total");
+                    double avg = (double) student.get("avg");
+
+                    System.out.println(name + ", " + score + ", " + avg);
+
+                }
+                sc.close();
+            }
+        }
+
+
